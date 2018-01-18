@@ -46,8 +46,8 @@
     display: block;
 }
 
-.blurr{
-    filter: blur(1px);
+#init{
+    display: none;
 }
 
 #defaultCanvas0{

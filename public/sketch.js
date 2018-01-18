@@ -17,7 +17,7 @@ let div = document.getElementsByClassName("input");
 function setup() {
     createCanvas(screen.width,screen.height);
     s = new Snake();
-    frameRate(20);
+    frameRate(5);
 
     pinkFood[0] = pickLocation();
     pinkFood[1] = pickLocation();
@@ -108,7 +108,8 @@ socket.on("ask-username",(message) => {
     let btn = document.getElementById("btn")
     document.getElementById("username").value = ""
     btn.onclick = () => {
-        document.getElementById("init").classList.remove("blurr")
+        frameRate(20);
+        document.getElementById("init").style.display="block"
         document.getElementById("defaultCanvas0").style.filter = "none"
         message.name = document.getElementById("username").value
         document.getElementById("input").style.visibility = "hidden"
