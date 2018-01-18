@@ -108,6 +108,8 @@ socket.on("ask-username",(message) => {
     let btn = document.getElementById("btn")
     document.getElementById("username").value = ""
     btn.onclick = () => {
+        document.getElementById("init").classList.remove("blurr")
+        document.getElementById("defaultCanvas0").style.filter = "none"
         message.name = document.getElementById("username").value
         document.getElementById("input").style.visibility = "hidden"
         socket.emit("username",message)

@@ -34,8 +34,14 @@
 .user .score{
     display: block;
 }
+
+.blurr{
+    filter: blur(1px);
+}
+
 #defaultCanvas0{
     position: absolute;
+    filter: blur(2px);
     top:0;
     left:0;
     background-size: cover;
