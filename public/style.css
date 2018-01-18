@@ -1,0 +1,72 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.user{
+    position: fixed;
+    float: left;
+    display: inline-block;
+    z-index: 2;
+    color: rgb(255,0,100) !important;
+    left: 20px;
+    top: 40px;
+    font-size: larger;
+}
+
+.user .multiplier{
+    display: block;
+    padding-bottom: 10px;
+}
+
+.user .score{
+    display: block;
+}
+#defaultCanvas0{
+    position: absolute;
+    top:0;
+    left:0;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    height: auto !important;
+    width: auto !important;
+}
+
+.leaderboard{
+    position: fixed;
+    top: 40px;
+    right: 5px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    background: #00f0;
+    opacity: 1;
+    z-index: 2;
+}
+
+.user p{
+    color: white;
+    display: inline;
+}
+
+.leaderboard ul li {
+    font-weight: 500;
+    color: white;
+    list-style: none;
+    font-size: large;
+    padding-bottom: 10px;
+}
+
+.my_score{
+    color: rgb(255,0,100) !important;
+}
+
+.input {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+}

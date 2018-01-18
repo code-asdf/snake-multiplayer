@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="jquery.js"></script>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+    <script src="sketch.js"></script>
+    <script src="snake.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="user">
+        <div class="multiplier">Current Multiplier : <p id="multi">x 1</p></div>
+        <div class="score">Your Score : <p id="scr">123</p></div>
+    </div>
+    <div class="leaderboard">
+        <ul id="leaderboard-list">
+
+        </ul>
+    </div>
+    <div class="gradient"></div>
+
+    <!--<div class="input">-->
+        <!--<input type="text" placeholder="pick a username" id="username">-->
+        <!--<button id="button">yumm</button>-->
+    <!--</div>-->
+
+</body>
+</html>
