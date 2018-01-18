@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+#btn{
+    font-size: 25px;
+    height: 40px;
+    width: 120px;
+}
+
+#username{
+    font-size: 25px;
+    height: 40px;
+}
+
 .user{
     position: fixed;
     float: left;

@@ -104,9 +104,9 @@ function draw() {
 }
 
 socket.on("ask-username",(message) => {
-    console.log("hi")
     document.getElementById("input").style.visibility = "visible"
     let btn = document.getElementById("btn")
+    document.getElementById("username").value = ""
     btn.onclick = () => {
         message.name = document.getElementById("username").value
         document.getElementById("input").style.visibility = "hidden"
