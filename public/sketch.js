@@ -6,9 +6,11 @@ let pinkFood = [];
 let greenFood = [];
 let purpleFood = [];
 
+/*
 let button = document.getElementById("button");
 let text = document.getElementById("text");
 let div = document.getElementsByClassName("input");
+*/
 
 
 
@@ -101,6 +103,17 @@ function draw() {
         rect(purpleFood[i].x,purpleFood[i].y,scl,scl);
 }
 
+socket.on("ask-username",(message) => {
+    console.log("hi")
+    document.getElementById("input").style.visibility = "visible"
+    let btn = document.getElementById("btn")
+    btn.onclick = () => {
+        message.name = document.getElementById("username").value
+        document.getElementById("input").style.visibility = "hidden"
+        socket.emit("username",message)
+    }
+})
+
 socket.on("update",(message) => {
     console.log(message)
     console.log(message.list)
@@ -112,9 +125,10 @@ socket.on("update",(message) => {
     vars.innerHTML=''
     for(let i=0;i<message.socketList.length;i++) {
         if(message.socketList[i]!== socket.id)
-            vars.innerHTML += '<li>' + message.list[message.socketList[i]] + '</li>';
-        else
-            vars.innerHTML += '<li class="my_score">' + message.list[message.socketList[i]] + '</li>';
+            vars.innerHTML += '<li>' + message.list[message.socketList[i]].name +" "+message.list[message.socketList[i]].score + '</li>';
+        else {
+            vars.innerHTML += '<li class="my_score">' + message.list[message.socketList[i]].name +" "+message.list[message.socketList[i]].score + '</li>';
+        }
 
     }
 })

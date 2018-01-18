@@ -11,13 +11,14 @@
     <script src="libraries/p5.sound.js" type="text/javascript"></script>
     <script src="sketch.js"></script>
     <script src="snake.js"></script>
+    <script src="username.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="user">
         <div class="multiplier">Current Multiplier : <p id="multi">x 1</p></div>
-        <div class="score">Your Score : <p id="scr">123</p></div>
+        <div class="score">Your Score : <p id="scr"></p></div>
     </div>
     <div class="leaderboard">
         <ul id="leaderboard-list">
@@ -26,10 +27,11 @@
     </div>
     <div class="gradient"></div>
 
-    <!--<div class="input">-->
-        <!--<input type="text" placeholder="pick a username" id="username">-->
-        <!--<button id="button">yumm</button>-->
-    <!--</div>-->
+    <div id="input">
+        <input type="text" placeholder="pick a username" id="username">
+        <input type="button" id="btn" value="yumm">
+    </div>
+
 
 </body>
 </html>

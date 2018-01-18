@@ -11,20 +11,33 @@ let list = {}
 let sockets = []
 io.on("connection", function (socket){
     console.log("Socket connected :" + socket.id)
-    list[socket.id] = 0
+    list[socket.id] = {score: 0,name: ""}
     sockets.push(socket.id)
 
-    socket.emit("update",{
-        list: list,
-        socketList: sockets
+    socket.emit("ask-username",{
+        name: ""
     })
 
+
+    //testing
+    socket.on("username",(message) => {
+        list[socket.id].name = message.name;
+        socket.emit("update",{
+            list: list,
+            socketList: sockets
+        })
+
+    })
+
+
+
+
     socket.on("update",(message) => {
-        list[socket.id] = Math.max(message.currentScore,list[socket.id])
+        list[socket.id].score = Math.max(message.currentScore,list[socket.id].score)
 
         for(let i=0;i<sockets.length;i++){
             for(let j=1;j<sockets.length-i;j++){
-                if(list[sockets[j]]>list[sockets[j-1]]){
+                if(list[sockets[j]].score>list[sockets[j-1]].score){
                     let temp = sockets[j];
                     sockets[j] = sockets[j-1];
                     sockets[j-1] = temp;
