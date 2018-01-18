@@ -2,17 +2,28 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
 }
 
 #btn{
-    font-size: 25px;
+    /*font-size: 25px;*/
     height: 40px;
     width: 120px;
+    border-radius: 100000px;
+    background-color: #C0C0C0;
+    transition-duration: 0.5s;
 }
 
+#btn:hover,#btn:active{
+    background-color: #a5a5a5;
+    cursor: pointer;
+}
 #username{
     font-size: 25px;
     height: 40px;
+    border-radius: 100000px;
+    margin-right: 10px;
 }
 
 .user{
@@ -23,7 +34,7 @@
     color: rgb(255,0,100) !important;
     left: 20px;
     top: 40px;
-    font-size: larger;
+    /*font-size: 25px;*/
 }
 
 .user .multiplier{
@@ -51,13 +62,16 @@
     width: auto !important;
 }
 
+
+
 .leaderboard{
+    /*font-size: 25px;*/
     position: fixed;
     top: 40px;
     right: 5px;
     display: inline-block;
     height: 200px;
-    width: 200px;
+    width: 300px;
     background: #00f0;
     opacity: 1;
     z-index: 2;
@@ -72,10 +86,15 @@
     font-weight: 500;
     color: white;
     list-style: none;
-    font-size: large;
+    font-size: 22px;
     padding-bottom: 10px;
 }
 
+.leaderboard ul li div{
+    display: inline-block;
+    width: 120px;
+    padding-left: 20px;
+}
 .my_score{
     color: rgb(250, 255, 2) !important;
 }

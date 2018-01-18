@@ -127,9 +127,9 @@ socket.on("update",(message) => {
     vars.innerHTML=''
     for(let i=0;i<message.socketList.length;i++) {
         if(message.socketList[i]!== socket.id)
-            vars.innerHTML += '<li>' + message.list[message.socketList[i]].name +" "+message.list[message.socketList[i]].score + '</li>';
+            vars.innerHTML += '<li>' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         else {
-            vars.innerHTML += '<li class="my_score">' + message.list[message.socketList[i]].name +" "+message.list[message.socketList[i]].score + '</li>';
+            vars.innerHTML += '<li class="my_score">' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         }
 
     }
