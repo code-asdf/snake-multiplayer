@@ -4,6 +4,8 @@ const socketio = require('socket.io')
 
 const app = express()
 
+var port = process.env.PORT || 9999;
+
 const server = http.createServer(app)
 const io = socketio(server)
 
@@ -11,39 +13,55 @@ let list = {}
 let sockets = []
 io.on("connection", function (socket){
     console.log("Socket connected :" + socket.id)
-    list[socket.id] = {score: 0,name: ""}
-    sockets.push(socket.id)
+
+    // socket.on("ask-username",(message) => {
+    //     socket.emit("ask-username",{
+    //
+    //     })
+    // })
 
     socket.emit("ask-username",{
         name: ""
     })
 
-
+    let temp = 0;
     //testing
     socket.on("username",(message) => {
+        list[socket.id] = {score: temp,name: "",pos:0}
+        sockets.push(socket.id)
+        list[socket.id].pos=sockets.length;
         list[socket.id].name = message.name;
         socket.emit("update",{
             list: list,
+            socketList: sockets,
+        })
+        socket.broadcast.emit("update",{
+            list: list,
             socketList: sockets
         })
-
     })
 
 
 
 
     socket.on("update",(message) => {
-        list[socket.id].score = Math.max(message.currentScore,list[socket.id].score)
-
+        if(list[socket.id])
+            list[socket.id].score = Math.max(message.currentScore,list[socket.id].score)
+        else
+            temp++;
         for(let i=0;i<sockets.length;i++){
             for(let j=1;j<sockets.length-i;j++){
                 if(list[sockets[j]].score>list[sockets[j-1]].score){
                     let temp = sockets[j];
+                    list[sockets[j]].pos --;
+                    list[sockets[j-1]].pos++;
                     sockets[j] = sockets[j-1];
                     sockets[j-1] = temp;
                 }
             }
         }
+
+
         socket.emit("update",{
             list: list,
             socketList: sockets
@@ -76,6 +94,6 @@ io.on("connection", function (socket){
 app.use('/',express.static(__dirname + '/public'))
 
 
-server.listen(9999,() => {
+server.listen(port,() => {
     console.log("connected to server on port http://local:9999")
 })

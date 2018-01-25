@@ -85,9 +85,15 @@
 .leaderboard ul li {
     font-weight: 500;
     color: white;
-    list-style: none;
+    list-style: upper-roman;
     font-size: 22px;
     padding-bottom: 10px;
+}
+
+#your{
+    position: relative;
+    left: 35%;
+    top: 5%;
 }
 
 .leaderboard ul li div{
@@ -106,4 +112,28 @@
     transform: translate(-50%,-50%);
     z-index: 3;
     visibility: hidden;
+}
+
+#input h1 {
+    color: white;
+
+    position: relative;
+    left: 70px;
+    bottom: 30px;
+    font-size: 90px;
+}
+
+#die{
+    z-index: 2;
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    transition-delay: 3s;
+}
+
+#die h2{
+    color:#d74444;
+    font-size: 80px;
+
 }

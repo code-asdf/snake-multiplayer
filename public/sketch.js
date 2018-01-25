@@ -49,8 +49,18 @@ function draw() {
             currentScore : s.currentScore,
             currentMultiplier: s.currentMultiplier
         })
-        console.log("current multiplier :" + s.currentMultiplier);
-        console.log("current score :"+s.currentScore);
+        let die = document.getElementById("die");
+        frameRate(5);
+        die.style.display="block";
+        document.getElementById("defaultCanvas0").style.filter = "blur(2px)"
+        setTimeout(() => {
+            die.style.display="none"
+            document.getElementById("defaultCanvas0").style.filter = "none"
+            frameRate(20)
+        },2000)
+        // console.log("current multiplier :" + s.currentMultiplier);
+        // console.log("current score :"+s.currentScore);
+        // socket.emit("ask-username")
     }
     s.update();
     s.show();
@@ -59,8 +69,8 @@ function draw() {
             pinkFood[i] = pickLocation();
             s.currentScore += s.currentMultiplier;
 
-            console.log("current multiplier :" + s.currentMultiplier);
-            console.log("current score :" + s.currentScore);
+            // console.log("current multiplier :" + s.currentMultiplier);
+            // console.log("current score :" + s.currentScore);
             socket.emit("update", {
                 currentScore: s.currentScore,
                 currentMultiplier: s.currentMultiplier
@@ -71,8 +81,8 @@ function draw() {
         if (s.eat(greenFood[i])) {
             greenFood[i] = pickLocation();
             s.currentScore += 2 * s.currentMultiplier;
-            console.log("current multiplier :" + s.currentMultiplier);
-            console.log("current score :" + s.currentScore);
+            // console.log("current multiplier :" + s.currentMultiplier);
+            // console.log("current score :" + s.currentScore);
             socket.emit("update", {
                 currentScore: s.currentScore,
                 currentMultiplier: s.currentMultiplier
@@ -83,8 +93,8 @@ function draw() {
         if (s.eat(purpleFood[i])) {
             purpleFood[i] = pickLocation();
             s.currentMultiplier+=1;
-            console.log("current multiplier :" + s.currentMultiplier);
-            console.log("current score :" + s.currentScore);
+            // console.log("current multiplier :" + s.currentMultiplier);
+            // console.log("current score :" + s.currentScore);
             socket.emit("update", {
                 currentScore: s.currentScore,
                 currentMultiplier: s.currentMultiplier
@@ -105,6 +115,7 @@ function draw() {
 
 socket.on("ask-username",(message) => {
     document.getElementById("input").style.visibility = "visible"
+    document.getElementById("defaultCanvas0").style.filter = "blur(2px)"
     let btn = document.getElementById("btn")
     document.getElementById("username").value = ""
     btn.onclick = () => {
@@ -118,21 +129,24 @@ socket.on("ask-username",(message) => {
 })
 
 socket.on("update",(message) => {
-    console.log(message)
-    console.log(message.list)
+    // console.log(message)
+    // console.log(message.list)
     let vars=document.getElementById('leaderboard-list');
     let multi = document.getElementById('multi');
     let scr = document.getElementById('scr');
     multi.innerHTML = 'x '+s.currentMultiplier;
     scr.innerHTML = s.currentScore;
     vars.innerHTML=''
-    for(let i=0;i<message.socketList.length;i++) {
+    for(let i=0;i<message.socketList.length && i<6;i++) {
         if(message.socketList[i]!== socket.id)
             vars.innerHTML += '<li>' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         else {
             vars.innerHTML += '<li class="my_score">' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         }
+    }
 
+    if(message.list[socket.id].pos>6){
+        document.getElementById("your").innerHTML = "You : " + message.list[socket.id].pos +"<sup> th</sup>";
     }
 })
 
