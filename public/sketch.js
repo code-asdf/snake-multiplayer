@@ -141,7 +141,7 @@ socket.on("update",(message) => {
     multi.innerHTML = 'x '+s.currentMultiplier;
     scr.innerHTML = s.currentScore;
     vars.innerHTML=''
-    for(let i=0;i<message.socketList.length && i<6;i++) {
+    for(let i=0;i<message.socketList.length && i<4;i++) {
         if(message.socketList[i]!== socket.id)
             vars.innerHTML += '<li>' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         else {
@@ -149,7 +149,7 @@ socket.on("update",(message) => {
         }
     }
 
-    if(message.list[socket.id].pos>6){
+    if(message.list[socket.id].pos>4){
         document.getElementById("your").innerHTML = "You : " + message.list[socket.id].pos +"<sup> th</sup>";
     }
 })
