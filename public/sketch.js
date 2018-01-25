@@ -92,6 +92,10 @@ function draw() {
     for(let i=0;i<3;i++) {
         if (s.eat(purpleFood[i])) {
             purpleFood[i] = pickLocation();
+            document.getElementById("message-multiplier").style.visibility = "visible";
+            setTimeout(() => {
+                document.getElementById("message-multiplier").style.visibility = "hidden";
+            },1000)
             s.currentMultiplier+=1;
             // console.log("current multiplier :" + s.currentMultiplier);
             // console.log("current score :" + s.currentScore);
