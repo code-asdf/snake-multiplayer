@@ -3,7 +3,7 @@
     padding:0;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #btn{
@@ -39,11 +39,13 @@
 
 .user .multiplier{
     display: block;
-    padding-bottom: 10px;
+    position: relative;
 }
 
 .user .score{
     display: block;
+    position: relative;
+
 }
 
 #init{
@@ -98,7 +100,7 @@
     font-weight: 500;
     color: white;
     list-style: upper-roman;
-    font-size: 22px;
+    font-size: 40px;
     padding-bottom: 10px;
 }
 
@@ -110,6 +112,7 @@
 
 .leaderboard ul li div{
     display: inline-block;
+    font-size: 40px;
     width: 120px;
     padding-left: 20px;
 }
@@ -148,4 +151,18 @@
     color:#d74444;
     font-size: 80px;
 
+}
+
+#scr{
+    position: relative;
+    left: 60px;
+    top:2px;
+    font-size: 40px;
+}
+
+#multi{
+    font-size: 40px;
+    position: relative;
+    top:3px;
+    left: 10px;
 }
