@@ -150,7 +150,9 @@ socket.on("update",(message) => {
     }
 
     if(message.list[socket.id].pos>4){
-        document.getElementById("your").innerHTML = "You : " + message.list[socket.id].pos +"<sup> th</sup>";
+        document.getElementById("your").innerHTML = "You are   " + message.list[socket.id].pos +"<sup> th</sup>";
+    }else{
+        document.getElementById("your").innerHTML = "";
     }
 })
 

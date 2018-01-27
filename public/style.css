@@ -99,21 +99,21 @@
 .leaderboard ul li {
     font-weight: 500;
     color: white;
-    list-style: upper-roman;
-    font-size: 40px;
+    list-style: none;
+    /*font-size: 40px;*/
     padding-bottom: 10px;
 }
 
 #your{
     position: relative;
-    left: 35%;
+    padding-left: 20px;
     top: 5%;
 }
 
 .leaderboard ul li div{
     display: inline-block;
-    font-size: 40px;
-    width: auto;
+    /*font-size: 40px;*/
+    width: 150px;
     padding-left: 20px;
 }
 .my_score{
