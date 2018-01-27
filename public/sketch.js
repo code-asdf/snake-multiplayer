@@ -15,7 +15,8 @@ let div = document.getElementsByClassName("input");
 
 
 function setup() {
-    createCanvas(screen.width,screen.height);
+    console.log(screen.width + " " + screen.height)
+    createCanvas(1920,1080);
     s = new Snake();
     frameRate(5);
 
