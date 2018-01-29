@@ -124,12 +124,12 @@ socket.on("ask-username",(message) => {
     let btn = document.getElementById("btn")
     document.getElementById("username").value = ""
     btn.onclick = () => {
-        frameRate(20);
-        document.getElementById("init").style.display="block"
-        document.getElementById("defaultCanvas0").style.filter = "none"
-        message.name = document.getElementById("username").value
-        document.getElementById("input").style.visibility = "hidden"
-        socket.emit("username",message)
+            frameRate(20);
+            document.getElementById("init").style.display = "block"
+            document.getElementById("defaultCanvas0").style.filter = "none"
+            message.name = document.getElementById("username").value
+            document.getElementById("input").style.visibility = "hidden"
+            socket.emit("username", message)
     }
 })
 
@@ -144,16 +144,16 @@ socket.on("update",(message) => {
     vars.innerHTML=''
     for(let i=0;i<message.socketList.length && i<4;i++) {
         if(message.socketList[i]!== socket.id)
-            vars.innerHTML += '<li>' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
+            vars.innerText += '<li>' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         else {
-            vars.innerHTML += '<li class="my_score">' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
+            vars.innerText += '<li class="my_score">' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         }
     }
 
     if(message.list[socket.id].pos>4){
-        document.getElementById("your").innerHTML = "You are   " + message.list[socket.id].pos +"<sup> th</sup>";
+        document.getElementById("your").innerText = "You are   " + message.list[socket.id].pos +"<sup> th</sup>";
     }else{
-        document.getElementById("your").innerHTML = "";
+        document.getElementById("your").innerText = "";
     }
 })
 
