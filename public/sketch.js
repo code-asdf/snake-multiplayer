@@ -144,16 +144,16 @@ socket.on("update",(message) => {
     vars.innerHTML=''
     for(let i=0;i<message.socketList.length && i<4;i++) {
         if(message.socketList[i]!== socket.id)
-            vars.innerText += '<li>' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
+            vars.innerHTML += '<li>' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         else {
-            vars.innerText += '<li class="my_score">' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
+            vars.innerHTML += '<li class="my_score">' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         }
     }
 
     if(message.list[socket.id].pos>4){
-        document.getElementById("your").innerText = "You are   " + message.list[socket.id].pos +"<sup> th</sup>";
+        document.getElementById("your").innerHTML = "You are   " + message.list[socket.id].pos +"<sup> th</sup>";
     }else{
-        document.getElementById("your").innerText = "";
+        document.getElementById("your").innerHTML = "";
     }
 })
 
