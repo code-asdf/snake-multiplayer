@@ -146,7 +146,7 @@ socket.on("update",(message) => {
         if(message.socketList[i]!== socket.id)
             vars.innerHTML += '<li>' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         else {
-            vars.innerHTML += '<li class="my_score">' +"<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
+            vars.innerHTML += '<li class="my_score">' + "<div>"+message.list[message.socketList[i]].name +"</div><div>"+message.list[message.socketList[i]].score + '</div></li>';
         }
     }
 
