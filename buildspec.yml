@@ -17,3 +17,6 @@ phases:
         commands:
             # Create the staging and production bundles for node server
             - echo `date` - Build completed!
+artifacts:
+  files:
+    - '**/*'
