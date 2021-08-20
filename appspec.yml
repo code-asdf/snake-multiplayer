@@ -5,6 +5,21 @@ files:
       destination: /home/ubuntu/
 
 hooks:
+    BeforeInstall:
+        - location: before-node-install.sh
+          timeout: 60
+          runas: root
+    AfterInstall:
+        - location: post-install-cleanup.sh
+          timeout: 60
+          runas: root
+        - location: setup-staging-config.sh
+          timeout: 60
+          runas: root
+    ApplicationStart:
+        - location: startup-node-staging-ci.sh
+          timeout: 60
+          runas: ubuntu
     ApplicationStop:
         - location: stop-snake-server.sh
           timeout: 60
