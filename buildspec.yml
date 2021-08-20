@@ -13,7 +13,7 @@ phases:
         commands:
             - npm install
             - npm ci
-            - tar pczf snake-test-staging.tar.gz *
+            - tar pczf snake-test-staging.tar.gz * --exclude "appspec.yml"
     post_build:
         commands:
             # Create the staging and production bundles for node server
