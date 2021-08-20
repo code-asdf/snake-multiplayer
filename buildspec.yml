@@ -13,8 +13,7 @@ phases:
         commands:
             - npm install
             - npm ci
-            - cd ..
-            - tar pczf snake-test-staging.tar.gz snake-multiplayer
+            - tar pczf snake-test-staging.tar.gz *
     post_build:
         commands:
             # Create the staging and production bundles for node server
