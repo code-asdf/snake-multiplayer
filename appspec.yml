@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+    - source: /
+      destination: /home/ubuntu/
+
+hooks:
+    ApplicationStop:
+        - location: stop-snake-server.sh
+          timeout: 60
+          runas: ubuntu
